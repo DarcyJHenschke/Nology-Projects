@@ -1,0 +1,40 @@
+@use "./../Partials/mixins";
+@use "./../Partials/palettes";
+
+.contact {
+    width: 100vw;
+    @include mixins.flex-column;
+    @include mixins.primary-palette;
+
+    &-wrapper {
+        width: 100vw;
+        @include mixins.flex;
+        flex-wrap: wrap;
+    }
+}
+
+.contact__img {
+    width: 8vw;
+    height: 8vh;
+    color: palettes.$styling-color;
+
+    &2 {
+        width: 8vw;
+        height: 8vh;
+        fill: palettes.$styling-color;
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: #3f4739;
+
+    &:hover {
+        color: palettes.$styling-color;
+    }
+
+    &__wrapper {
+        padding: 4vh 4vw 4vh 4vw;
+        @include mixins.flex-column;
+    }
+}

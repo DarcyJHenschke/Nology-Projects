@@ -1,0 +1,36 @@
+@use "./../Partials/mixins";
+@use "./../Partials/palettes";
+
+.about {
+    @include mixins.secondary-palette;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 20vh;
+    @include mixins.flex;
+    flex-wrap: wrap;
+
+    &__text-wrapper {
+        padding-right: 10vw;
+    }
+
+    &__heading {
+        width: 40vw;
+    }
+
+    &__para-1 {
+        width: 40vw;
+    }
+
+    &__para-2 {
+        width: 40vw;
+    }
+
+    &__para-3 {
+        width: 40vw;
+    }
+
+    &__img {
+        width: 30vw;
+        height: 40vh;
+    }
+}

@@ -1,0 +1,26 @@
+@use "./../Partials/mixins";
+@use "./../Partials/palettes";
+
+.projects {
+    @include mixins.flex-column;
+    @include mixins.secondary-palette;
+    width: 100vw;
+    height: 100vh;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.img-wrapper {
+    @include mixins.flex-column;
+
+    &__img {
+        width: 22vw;
+        height: 30vh;
+        padding: 4vh 4vw 4vh 4vw;
+    }
+}
