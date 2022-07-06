@@ -2,8 +2,7 @@
 @use "./../Partials/palettes";
 
 .skills {
-    width: 100vw;
-    height: 100vh;
+    @include mixins.page-size;
     @include mixins.flex-column;
     @include mixins.primary-palette;
 
