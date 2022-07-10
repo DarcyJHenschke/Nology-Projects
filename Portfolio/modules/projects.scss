@@ -1,28 +1,30 @@
 @use "./../Partials/mixins";
 @use "./../Partials/palettes";
 
+// Projects page or section wrapper styles
 .projects {
     @include mixins.flex-column;
     @include mixins.secondary-palette;
     @include mixins.page-size;
 
     &__wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        @include mixins.flex-wrap;
+    }
+
+    &__title {
+        @include mixins.section-title;
     }
 }
 
+// styling of imgs within project section
 .img-wrapper {
     @include mixins.flex-column;
+    font-size: 3vh;
 
     &__img {
-        min-width: 20vw;
-        max-width: 30vw;
-        min-height: 20vh;
-        max-height: 40vh;
+        width: 200px;
+        height: 250px;
         margin: 6vh 6vw 6vh 6vw;
-        border: 4px solid #ff9505;
+        border: 4px solid palettes.$tertiary-color;
     }
 }

@@ -4,37 +4,39 @@
 .body {
     font-family: Trispace, sans-serif;
     &--background-color {
-        background-color: palettes.$body-color;
+        background-color: palettes.$primary-color;
     }
 
     &--width {
-        width: 100vw;
+        @include mixins.default-width;
     }
 }
 
 .home {
     @include mixins.page-size;
     @include mixins.primary-palette;
+    @include mixins.flex-column;
 }
 
 .header {
-    background-color: #dddfdf;
+    background-color: palettes.$primary-color;
     position: fixed;
     top: 0;
-    width: 100vw;
+    @include mixins.default-width;
 }
 
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 100vw;
+    @include mixins.default-width;
     padding: 0 5vw 0 5vw;
 
     &__logo-link {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
+        font-size: 3vh;
 
         &--width {
             width: 30vw;
@@ -56,11 +58,12 @@
 
         &--list-style {
             list-style: none;
+            font-size: 2vh;
         }
 
         &--list-style li a {
             @include mixins.link-styling;
-            border: 1px solid #ff9505;
+            border: 0.3vh solid palettes.$tertiary-color;
             padding: 4px;
             border-radius: 6px;
             font-weight: 200;
@@ -75,37 +78,84 @@
 .logo__text {
     text-decoration: none;
     &--chevron-left {
-        color: #3f4739;
-        font-weight: 400;
-        font-size: 3vh;
+        @include mixins.logo-styles;
     }
 
     &--chevron-right {
-        color: #3f4739;
-        font-weight: 400;
-        font-size: 3vh;
+        @include mixins.logo-styles;
     }
-
     &--D {
-        color: #3f4739;
-        font-weight: 400;
-        font-size: 3vh;
+        @include mixins.logo-styles;
     }
 
     &--H {
-        color: #ff9505;
+        color: palettes.$tertiary-color;
         font-weight: 400;
         font-size: 3vh;
+    }
+}
+
+.hamburger {
+    display: none;
+
+    &__bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: palettes.$secondary-color;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .nav__link-list {
+        position: fixed;
+        left: -115%;
+        top: 3rem;
+        flex-direction: column;
+        background-color: palettes.$primary-color;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+
+        transition: 0.3s;
+    }
+
+    .nav__link-list.active {
+        left: 0;
+    }
+
+    .list-item {
+        margin: 1rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .hamburger__bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .hamburger__bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger__bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 
 .darcy {
-    color: #3f4739;
+    color: palettes.$secondary-color;
     font-weight: 400;
 }
 
 .henschke {
-    color: #ff9505;
+    color: palettes.$tertiary-color;
     font-weight: 400;
 }
 
@@ -115,7 +165,7 @@
     margin-top: 10vh;
 
     &--width {
-        width: 100vw;
+        @include mixins.default-width;
     }
 }
 
@@ -124,21 +174,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: left;
+    margin-top: 10vh;
 
     &--width {
         width: 85vw;
     }
 
     &__heading--styles {
-        color: #3f4739;
+        color: palettes.$secondary-color;
         font-weight: 700;
-        font-size: 8vh;
+        font-size: 7vh;
+
         text-align: left;
         margin-bottom: 1vh;
     }
 
     &__subheading--styles {
-        color: #3f4739;
+        color: palettes.$secondary-color;
         font-weight: 600;
         font-size: 6vh;
         text-align: left;
@@ -146,9 +198,8 @@
     }
 
     &__para--styles {
-        color: #3f4739;
+        color: palettes.$secondary-color;
         font-weight: 200;
-
         font-size: 3vh;
         text-align: left;
     }
@@ -157,7 +208,7 @@
 .footer {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 70vw;
 
     &--margin {
         margin-top: 18vh;
@@ -174,25 +225,23 @@
     }
 
     &--border {
-        border-bottom: 1px solid #ff9505;
+        border-bottom: 0.4vh solid palettes.$tertiary-color;
         padding-bottom: 2.5vh;
     }
 }
 
 .link-wrapper {
     &__link {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include mixins.flex-column;
 
         &--styles {
-            color: #3f4739;
+            color: palettes.$secondary-color;
             text-decoration: none;
+            font-size: 2vh;
         }
 
         &--styles:hover {
-            color: #ff9505;
+            color: palettes.$tertiary-color;
         }
     }
 }
@@ -204,6 +253,6 @@
     }
 
     &--color {
-        color: #ff9505;
+        color: palettes.$tertiary-color;
     }
 }

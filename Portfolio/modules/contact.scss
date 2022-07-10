@@ -7,30 +7,34 @@
     @include mixins.primary-palette;
 
     &-wrapper {
-        width: 100vw;
-        @include mixins.flex;
-        flex-wrap: wrap;
+        @include mixins.default-width;
+        @include mixins.flex-wrap;
+    }
+
+    &__title {
+        @include mixins.section-title;
     }
 }
 
 .contact__img {
     width: 8vw;
     height: 8vh;
-    color: palettes.$styling-color;
+    color: palettes.$tertiary-color;
 
     &2 {
         width: 8vw;
         height: 8vh;
-        fill: palettes.$styling-color;
+        fill: palettes.$tertiary-color;
     }
 }
 
 .link {
     text-decoration: none;
-    color: #3f4739;
+    color: palettes.$secondary-color;
+    font-size: 3vh;
 
     &:hover {
-        color: palettes.$styling-color;
+        color: palettes.$tertiary-color;
     }
 
     &__wrapper {

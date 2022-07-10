@@ -11,6 +11,13 @@
     align-items: center;
 }
 
+@mixin flex-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 @mixin primary-palette {
     background-color: rgb(221, 223, 223);
     color: rgb(63, 71, 57);
@@ -37,4 +44,19 @@
 @mixin page-size {
     width: 100vw;
     min-height: 100vh;
+}
+@mixin section-title {
+    font-size: 5vh;
+    text-decoration: underline rgb(255, 149, 5);
+    margin-top: 10vh;
+}
+
+@mixin default-width {
+    width: 100vw;
+}
+
+@mixin logo-styles {
+    color: #3f4739;
+    font-weight: 400;
+    font-size: 3vh;
 }
