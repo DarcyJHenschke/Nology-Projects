@@ -12,5 +12,5 @@ The purpose of this project and ultimately the finalised website is to showcase 
 - website is fully responsive to whatever screen size is applied
 
 ## Link
-[Launch the Live Site](https://)
+to open the webiste simply cloen the repositry onto your local repositry and then open the HTML file with a liver server
 
